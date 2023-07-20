@@ -1,0 +1,58 @@
+:root {
+    --gridSize: 16;
+}
+
+
+/*What does these three do??*/
+*,
+*::before,
+*::after {
+    border: solid red;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+#grid {
+    min-height: 500px;
+    min-width: 500px;
+    height: 500px;
+    width: 500px;
+    border: none;
+    outline: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    /* Specifies “3 columns per row”. repeat(3, minmax(0, 1fr)) 
+    will create 3 equal columns, while repeat(3, auto) allows the 
+    browser to resize as required. */
+    grid-template-columns: repeat(var(--gridSize), minmax(0, 1fr));
+    grid-gap: 0;
+    padding: 0;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    margin: 0;
+    /*outline: 1px solid black;*/
+    margin: 0;
+    width: calc(500px/var(--gridSize));
+    height: calc(500px/var(--gridSize));
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    margin: 8px;
+}
+
