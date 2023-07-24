@@ -71,8 +71,8 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 16px 8px;
-    margin: 8px;
+    padding: 8px;
+    margin: 0 8px;
     gap: 16px;
     /*border: 1px solid #000;*/
     border-radius: 16px;
@@ -112,6 +112,7 @@ main {
 
 h3 {
     text-align: center;
+    margin-top: 0;
 }
 
 .colorModeButton {
@@ -133,4 +134,24 @@ h3 {
 .erasorModeButton, #clearButton {
     border-radius: 3px;
     border: none;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    font-size: large;
+}
+
+img {
+    width: 25px;
+    height: 25px;
+}
+
+img:hover {
+    rotate: 360deg;
+    transition: 800ms;
+    scale: 1.1;
 }
