@@ -3,15 +3,17 @@ var root = document.querySelector(":root")
 var grid = document.getElementById("grid")
 var gridSize = 16 /*getComputedStyle(document.querySelector(":root")).getPropertyValue("--gridSize")*/
 var newGridSize
-var colorMode = "defaultColorMode"
+var COLORMODE = "defaultColorMode"
 var COLOR = "black"
 
-const value = document.querySelector("#value") /* pixels, gridSize */
+const value = document.querySelector("#value") /* display the chosen pixels size */
 const input = document.querySelector("#gridInput")
+
+
 const clearButton = document.querySelector("#clearButton")
 const colorModeButton = document.querySelector("#colorMode")
 const erasorModeButton = document.querySelector("#erasorMode")
-
+const colors = document.querySelectorAll(".color")
 
 
 value.textContent = input.value
@@ -49,11 +51,11 @@ function addCellListener() {
 
 function setColor(e) {
     if (e.type === 'mouseover' && !mouseDown) return /* make sure that you have to both click and hover to paint */
-    if (colorMode === "defaultColorMode") {
+    if (COLORMODE === "defaultColorMode") {
         e.target.style.backgroundColor = "black"
-    } else if (colorMode === "erasorMode") {
+    } else if (COLORMODE === "erasorMode") {
         e.target.style.backgroundColor = "white"
-    } else if (colorMode === "colorMode") {
+    } else if (COLORMODE === "colorMode") {
         e.target.style.backgroundColor = COLOR
     }
 }
@@ -92,29 +94,20 @@ clearButton.addEventListener("click", () => {
 })
 
 colorModeButton.addEventListener("click", () => {
-    colorMode = "colorMode"
+    COLORMODE = "colorMode"
     COLOR = "#000"
     addCellListener()
 })
 
 erasorModeButton.addEventListener("click", () => {
-    colorMode = "erasorMode"
+    COLORMODE = "erasorMode"
     addCellListener()
 })
 
-
-const colors = document.querySelectorAll(".color")
 colors.forEach((color) => {
     color.addEventListener("click", () => {
         COLOR = color.id
-        colorMode = "colorMode"
+        COLORMODE = "colorMode"
         console.log(COLOR)
     })
 })
-
-
-
-
-
-// https://www.syncfusion.com/javascript-ui-controls/js-color-picker
-// https://www.w3schools.com/colors/colors_picker.asp

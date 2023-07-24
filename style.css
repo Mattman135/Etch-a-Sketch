@@ -7,8 +7,6 @@
     --background-color-grid: white;
 }
 
-
-/*What does these three do?*/
 *,
 *::before,
 *::after {
@@ -32,6 +30,25 @@ main {
     flex-direction: row;
     align-items: center;
     height: 100%;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 0;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    font-size: large;
+}
+
+img {
+    width: 25px;
+    height: 25px;
 }
 
 #grid {
@@ -110,11 +127,6 @@ main {
     margin: 8px;
 }
 
-h3 {
-    text-align: center;
-    margin-top: 0;
-}
-
 .colorModeButton {
     border: none;
     background-color: #000;
@@ -134,20 +146,6 @@ h3 {
 .erasorModeButton, #clearButton {
     border-radius: 3px;
     border: none;
-}
-
-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-align: center;
-    font-size: large;
-}
-
-img {
-    width: 25px;
-    height: 25px;
 }
 
 img:hover {
