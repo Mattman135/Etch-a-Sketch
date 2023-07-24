@@ -1,25 +1,26 @@
 // VARIABLES
 var root = document.querySelector(":root")
 var grid = document.getElementById("grid")
-var gridSize = getComputedStyle(document.querySelector(":root")).getPropertyValue("--gridSize")
+var gridSize = 16 /*getComputedStyle(document.querySelector(":root")).getPropertyValue("--gridSize")*/
 var newGridSize
-var Mode = "colorMode" /* color mode is default mode */
+var colorMode = "defaultColorMode" /* color mode is default mode */
+var COLOR = "black"
 
 const value = document.querySelector("#value") /* pixels, gridSize */
 const input = document.querySelector("#gridInput")
 const clearButton = document.querySelector("#clearButton")
-const colorMode = document.querySelector("#colorMode")
-const erasorMode = document.querySelector("#erasorMode")
+const colorModeButton = document.querySelector("#colorMode")
+const erasorModeButton = document.querySelector("#erasorMode")
 
 
 
 value.textContent = input.value
 
+
+// Make sure that you both need to click and hover when painting
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
-
-
 
 //
 createGrid(gridSize)
@@ -35,10 +36,10 @@ function createGrid(gridSize) {
             grid.appendChild(cell)
         }
     }
-    addListener()
+    addCellListener()
 }
 
-function addListener() {
+function addCellListener() {
     var cells = document.querySelectorAll(".cell")
     cells.forEach((cell) => {
         cell.addEventListener("mouseover", setColor)
@@ -48,10 +49,12 @@ function addListener() {
 
 function setColor(e) {
     if (e.type === 'mouseover' && !mouseDown) return /* make sure that you have to both click and hover to paint */
-    if (Mode === "colorMode") {
+    if (colorMode === "defaultColorMode") {
         e.target.style.backgroundColor = "black"
-    } else if (Mode === "erasorMode") {
+    } else if (colorMode === "erasorMode") {
         e.target.style.backgroundColor = "white"
+    } else if (colorMode === "colorMode") {
+        e.target.style.backgroundColor = COLOR
     }
 }
 
@@ -84,16 +87,34 @@ input.addEventListener("input", (event) => {
   createGrid(gridSize)
 })
 
-clearButton.addEventListener("click", (event) => {
+clearButton.addEventListener("click", () => {
     clearGrid(gridSize)
 })
 
-colorMode.addEventListener("click", () => {
-    Mode = "colorMode"
-    addListener()
+colorModeButton.addEventListener("click", () => {
+    colorMode = "colorMode"
+    COLOR = "#000"
+    addCellListener()
 })
 
-erasorMode.addEventListener("click", () => {
-    Mode = "erasorMode"
-    addListener()
+erasorModeButton.addEventListener("click", () => {
+    colorMode = "erasorMode"
+    addCellListener()
 })
+
+
+const colors = document.querySelectorAll(".color")
+colors.forEach((color) => {
+    color.addEventListener("click", () => {
+        COLOR = color.id
+        colorMode = "colorMode"
+        console.log(COLOR)
+    })
+})
+
+
+
+
+
+//https://www.syncfusion.com/javascript-ui-controls/js-color-picker
+// https://www.w3schools.com/colors/colors_picker.asp
