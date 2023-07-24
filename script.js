@@ -3,7 +3,7 @@ var root = document.querySelector(":root")
 var grid = document.getElementById("grid")
 var gridSize = 16 /*getComputedStyle(document.querySelector(":root")).getPropertyValue("--gridSize")*/
 var newGridSize
-var colorMode = "defaultColorMode" /* color mode is default mode */
+var colorMode = "defaultColorMode"
 var COLOR = "black"
 
 const value = document.querySelector("#value") /* pixels, gridSize */
@@ -116,5 +116,5 @@ colors.forEach((color) => {
 
 
 
-//https://www.syncfusion.com/javascript-ui-controls/js-color-picker
+// https://www.syncfusion.com/javascript-ui-controls/js-color-picker
 // https://www.w3schools.com/colors/colors_picker.asp
