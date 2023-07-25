@@ -1,5 +1,5 @@
 # Etch-a-Sketch 
-<a href="">Live Demo</a>
+<a href="https://mattman135.github.io/Etch-a-Sketch/">Live Demo</a>
 
 This repo contains the Etch-a-Sketch project from The Odin Project (TOP). https://www.theodinproject.com/lessons/foundations-etch-a-sketch
 
