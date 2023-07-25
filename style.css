@@ -137,13 +137,15 @@ img {
 
 .color:hover {
     border: 1px solid black;
+    cursor: pointer;
 }
 
-.colorModeButton:hover, .erasorModeButton:hover, #clearButton:hover, .randomModeButton:hover {
+.colorModeButton:hover, .erasorModeButton:hover, #clearButton:hover, .randomModeButton:hover, .darkeningEffectButton:hover {
     scale: 1.1;
+    cursor: pointer;
 }
 
-.erasorModeButton, #clearButton, .randomModeButton {
+.erasorModeButton, #clearButton, .randomModeButton, .darkeningEffectButton {
     border-radius: 3px;
     border: none;
 }
