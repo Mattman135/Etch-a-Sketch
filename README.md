@@ -12,7 +12,7 @@ The project should include
 
 Note
 - Use div to create a grid
-- Use hover effect and click to change the colors. You need to hover and clicked to change color. Hence hovering over a square isn't enough for it to change color.
+- Use hover effect to change the colors.
 - Add a class to the div when changing the color
 - Use variables as much as I can to practice. Colors, grid-size.
 
@@ -22,4 +22,6 @@ Extra credit (TOP)
 
 
 Things I've learned in this project
-- 
+- Manipulating the DOM in many different ways
+- Randomize colors
+- Practiced flexbox

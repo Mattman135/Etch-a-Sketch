@@ -10,7 +10,6 @@
 *,
 *::before,
 *::after {
-    /*border: solid red;*/
     box-sizing: border-box;
     font-family: Lucida Sans;
 }
@@ -60,9 +59,6 @@ img {
     outline: 2px solid black;
     display: flex;
     flex-wrap: wrap;
-    /* Specifies “3 columns per row”. repeat(3, minmax(0, 1fr))
-    will create 3 equal columns, while repeat(3, auto) allows the 
-    browser to resize as required. */
     grid-template-columns: repeat(var(--gridSize), minmax(0, 1fr));
     grid-gap: 0;
     padding: 0;
@@ -77,7 +73,6 @@ img {
     justify-content: center;
     border: none;
     margin: 0;
-    /*outline: 1px solid black;*/
     margin: 0;
     width: calc(500px/var(--gridSize));
     height: calc(500px/var(--gridSize));
@@ -91,7 +86,6 @@ img {
     padding: 8px;
     margin: 0 8px;
     gap: 16px;
-    /*border: 1px solid #000;*/
     border-radius: 16px;
     background-color: var(--background-color-3);
     box-shadow: 2px 2px 10px white;
@@ -102,7 +96,6 @@ img {
     min-height: 200px;
     width: 200px;
     height: 200px;
-    /*outline: 2px solid black;*/
     padding: 0;
     border: none;
     display: flex;
@@ -118,7 +111,6 @@ img {
     flex-wrap: wrap;
     height: 40px;
     width: 40px;
-    /*outline: 1px solid black;*/
     margin: 0;
     border: 1px solid white;
 }

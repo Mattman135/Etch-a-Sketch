@@ -1,12 +1,15 @@
 // VARIABLES
 var root = document.querySelector(":root")
 var grid = document.getElementById("grid")
-var gridSize = 16 /*getComputedStyle(document.querySelector(":root")).getPropertyValue("--gridSize")*/
+var gridSize = 16
 var newGridSize
 var COLORMODE = "defaultColorMode"
 var COLOR = "rgb(0,0,0)"
+var red
+var green
+var blue
 
-const value = document.querySelector("#value") /* display the chosen pixels size */
+const value = document.querySelector("#value")
 const input = document.querySelector("#gridInput")
 
 
@@ -17,18 +20,6 @@ const colors = document.querySelectorAll(".color")
 const randomModeButton = document.querySelector(".randomModeButton")
 
 value.textContent = input.value
-
-
-// darkening testing, default values
-var red
-var green
-var blue
-
-
-// Make sure that you both need to click and hover when painting
-let mouseDown = false
-document.body.onmousedown = () => (mouseDown = true)
-document.body.onmouseup = () => (mouseDown = false)
 
 //
 createGrid(gridSize)
@@ -56,7 +47,6 @@ function addCellListener() {
 }
 
 function setColor(e) {
-    if (e.type === 'mouseover' && !mouseDown) return /* make sure that you have to both click and hover to paint */
     if (COLORMODE === "defaultColorMode") {
         red = 0
         green = 0
@@ -69,7 +59,6 @@ function setColor(e) {
         e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
     } else if (COLORMODE === "colorMode") {
         rgb = convertHexToRgbA(COLOR)
-        /*console.log("test", rgb)*/
         red = rgb[0]
         green = rgb[1]
         blue = rgb[2]
@@ -78,23 +67,15 @@ function setColor(e) {
         red = Math.floor(Math.random()*256)
         green = Math.floor(Math.random()*256)
         blue = Math.floor(Math.random()*256)
-        /*console.log(COLOR)*/
         e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
     } else if (COLORMODE === "darkeningMode") {
         if (e.target.style.backgroundColor === "") return
-
-        /*console.log(e.target.style.backgroundColor) /* string
-        console.log(convert(e.target.style.backgroundColor))*/
-
         var hexa = convert(e.target.style.backgroundColor)
         var rgb = convertHexToRgbA(hexa)
         red = rgb[0]*0.9
         green = rgb[1]*0.9
         blue = rgb[2]*0.9
         e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
-        /*console.log(e.target.style.backgroundColor[4])
-        console.log(e.target.style.backgroundColor[7])
-        console.log(e.target.style.backgroundColor[10])*/
     }
 }
 
@@ -123,7 +104,7 @@ input.addEventListener("input", (event) => {
   newGridSize = Number(value.textContent)
   deleteGrid(gridSize)
   gridSize = newGridSize
-  root.style.setProperty('--gridSize', newGridSize) /* change CSS variable */
+  root.style.setProperty('--gridSize', newGridSize)
   createGrid(gridSize)
 })
 
@@ -145,7 +126,6 @@ colors.forEach((color) => {
     color.addEventListener("click", () => {
         COLOR = color.id
         COLORMODE = "colorMode"
-        /*console.log(COLOR)*/
     })
 })
 
@@ -161,15 +141,6 @@ darkeningEffectButton.addEventListener("click", () => {
     COLORMODE = "darkeningMode"
     addCellListener()
 })
-
-
-
-
-
-
-
-
-
 
 // Code is borrowed from: https://www.geeksforgeeks.org/how-to-get-hex-color-value-of-rgb-value/
 // and: https://www.geeksforgeeks.org/how-to-convert-hex-to-rgba-value-using-javascript/
