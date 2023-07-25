@@ -139,11 +139,11 @@ img {
     border: 1px solid black;
 }
 
-.colorModeButton:hover, .erasorModeButton:hover, #clearButton:hover {
+.colorModeButton:hover, .erasorModeButton:hover, #clearButton:hover, .randomModeButton:hover {
     scale: 1.1;
 }
 
-.erasorModeButton, #clearButton {
+.erasorModeButton, #clearButton, .randomModeButton {
     border-radius: 3px;
     border: none;
 }

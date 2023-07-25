@@ -15,9 +15,7 @@ const colorModeButton = document.querySelector("#colorMode")
 const erasorModeButton = document.querySelector("#erasorMode")
 const colors = document.querySelectorAll(".color")
 
-
 value.textContent = input.value
-
 
 // Make sure that you both need to click and hover when painting
 let mouseDown = false
@@ -26,7 +24,6 @@ document.body.onmouseup = () => (mouseDown = false)
 
 //
 createGrid(gridSize)
-
 
 // FUNCTIONS
 function createGrid(gridSize) {
@@ -56,6 +53,13 @@ function setColor(e) {
     } else if (COLORMODE === "erasorMode") {
         e.target.style.backgroundColor = "white"
     } else if (COLORMODE === "colorMode") {
+        e.target.style.backgroundColor = COLOR
+    } else if (COLORMODE === "randomMode") {
+        var red = Math.floor(Math.random()*256)
+        var green = Math.floor(Math.random()*256)
+        var blue = Math.floor(Math.random()*256)
+        COLOR = `rgb(${red}, ${green}, ${blue})`
+        /*console.log(COLOR)*/
         e.target.style.backgroundColor = COLOR
     }
 }
@@ -108,6 +112,13 @@ colors.forEach((color) => {
     color.addEventListener("click", () => {
         COLOR = color.id
         COLORMODE = "colorMode"
-        console.log(COLOR)
+        /*console.log(COLOR)*/
     })
+})
+
+
+const randomModeButton = document.querySelector(".randomModeButton")
+randomModeButton.addEventListener("click", () => {
+    COLORMODE = "randomMode"
+    addCellListener()
 })
